@@ -1,0 +1,430 @@
+
+
+
+
+
+
+/* Drawer */
+
+#attoya-drawer {
+  border: none !important;
+  bottom: 0;
+  padding: 0;
+  background-color: #ffffff;
+  position: fixed;
+  overflow: hidden;
+  height: 0px;
+  width: 100%;
+  visibility: hidden;
+  z-index: 1000000;
+}
+
+body.dark #attoya-drawer {
+  background: #1A1D22 !important;
+  color: #ffffff !important;
+}
+
+
+#attoya-drawer.modal-open {
+  width: calc(100% - 16px) !important;
+}
+
+
+
+
+/* Grip Bar */
+
+#attoya-drawer .ui-resizable-n {
+  cursor: grab;
+  cursor: -webkit-grab !important;
+  cursor: -moz-grab;
+  height: 22px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  background: url(../../img/resizable-grip-h.png) center center no-repeat #f4f4f4;
+  z-index: 1;
+  display: block !important; /* force to keep query from hiding */
+}
+body.dark #attoya-drawer .ui-resizable-n {
+  border-top: 1px solid #22262c;
+  border-bottom: 1px solid #22262c;
+  background: url(../../img/resizable-grip-h.png) center center no-repeat #22262c;
+}
+
+#attoya-drawer .ui-resizable-n:hover {
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
+  background: url(../..img/resizable-grip-h.png) center center no-repeat #f7f7f7;
+}
+body.dark #attoya-drawer .ui-resizable-n:hover {
+  border-top: 1px solid #22262c;
+  border-bottom: 1px solid #22262c;
+  background: url(../../img/resizable-grip-h.png) center center no-repeat #22262c;
+}
+
+#attoya-drawer .ui-resizable-n:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing;
+}
+
+/* Static grip for height padding */
+#attoya-drawer .ui-resizable-n-static {
+  height: 22px;
+}
+
+
+
+
+/* Grip Controls */
+
+#attoya-drawer .ui-resizable-controls {
+  margin: 0 4px;
+  position: relative;
+}
+
+#attoya-drawer .ui-resizable-controls {
+  float: right;
+  z-index: 1000002;
+}
+
+#attoya-drawer .ui-resizable-controls i {
+  font: normal normal normal 14px/1 'Font Awesome 5 Pro';
+  cursor: pointer;
+  margin: 3px 5px;
+}
+
+#attoya-drawer .ui-resizable-controls .control-restore {
+  display: none;
+}
+
+
+
+
+/* Container */
+
+#attoya-drawer-container {
+  min-height: 100%;
+}
+
+
+
+
+/* Content */
+
+drawer content,
+#attoya-drawer-content {
+  padding: 15px;
+  margin: 0 auto;
+}
+drawer content:after,
+#attoya-drawer-content:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+
+
+
+/* Headers */
+
+drawer content h6 a,
+#attoya-drawer-content h6 a {
+  text-decoration: none;
+}
+
+drawer content h6 a:hover,
+#attoya-drawer-content h6 a:hover {
+  text-decoration: none;
+}
+
+drawer content h6 .fa,
+#attoya-drawer-content h6 .fa {
+  display: none;
+  font-size: 0.95em;
+  vertical-align: top;
+}
+
+drawer content section,
+#attoya-drawer-content section {
+  background-color: #eeeeee;
+  padding: 10px 10px 20px 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+/* Scroller */
+
+#attoya-drawer-scroller {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#attoya-drawer-scroller.modal-open {
+  overflow-y: hidden;
+  padding-right: 10px; /* Prevent scroll flicker on noscroll */
+}
+
+
+
+
+/* Menu */
+
+#attoya-drawer-menu {
+  padding: 10px 0px;
+  margin: 0 !important;
+  min-height: 48px;
+  background: #F9F9F9;
+  font-size: 0.95em;
+}
+body.dark #attoya-drawer-menu {
+  background: #292D35 !important;
+}
+
+#attoya-drawer-menu > section {
+  padding: 0 26px 0 26px;
+  height: 28px;
+  display: table;
+}
+
+#attoya-drawer-menu .crud {
+  float: left;
+}
+
+#attoya-drawer-menu .action {
+  float: left;
+}
+
+#attoya-drawer-menu .loader {
+  display: none;
+  float: left;
+  margin: 6px 6px 0;
+}
+
+#attoya-drawer-menu .primary {
+  float: right;
+  padding: 0 16px 0 26px;
+}
+
+#attoya-drawer-menu button,
+#attoya-drawer-menu button:hover,
+#attoya-drawer-menu button:focus {
+  padding: 6px 10px;
+  margin: 0 3px !important;
+  height: 28px;
+  min-width: 28px;
+  display: inline-block;
+  font-size: 0.9em;
+  text-decoration: none;
+  margin: 0 1px 0 1px;
+  vertical-align: unset;
+}
+
+#attoya-drawer-menu button.icon,
+#attoya-drawer-menu button.icon:hover,
+#attoya-drawer-menu button.icon:focus,
+#attoya-drawer-menu button.text,
+#attoya-drawer-menu button.text:hover,
+#attoya-drawer-menu button.text:focus {
+  background-color: #f9f9f9;
+  border: 1px solid #f9f9f9;
+  color: #797979;
+}
+
+body.dark #attoya-drawer-menu button.icon,
+body.dark #attoya-drawer-menu button.icon:hover,
+body.dark #attoya-drawer-menu button.icon:focus,
+body.dark #attoya-drawer-menu button.text,
+body.dark #attoya-drawer-menu button.text:hover,
+body.dark #attoya-drawer-menu button.text:focus {
+  background-color: #292D35 !important;
+  border-color: #292D35 !important;
+  color: #bbbbbb !important;
+}
+
+#attoya-drawer-menu button.icon,
+#attoya-drawer-menu button.icon:hover,
+#attoya-drawer-menu button.icon:focus {
+  padding: 6px 7px;
+}
+
+#attoya-drawer-menu button.text,
+#attoya-drawer-menu button.text:hover,
+#attoya-drawer-menu button.text:focus {
+  background-color: #fcfcfc;
+  border: 1px solid #dedede;
+}
+
+body.dark #attoya-drawer-menu button.text,
+body.dark #attoya-drawer-menu button.text:hover,
+body.dark #attoya-drawer-menu button.text:focus {
+  background-color: #292D35 !important;
+  border-color: #7b8191 !important;
+}
+
+#attoya-drawer-menu .crud button.disabled,
+#attoya-drawer-menu .crud button.disabled:hover,
+#attoya-drawer-menu .crud button.disabled:focus
+#attoya-drawer-menu .action button.disabled,
+#attoya-drawer-menu .action button.disabled:hover,
+#attoya-drawer-menu .action button.disabled:focus {
+  background-color: #f9f9f9;
+  border: 1px solid #f9f9f9;
+  color: #dedede;
+  padding: 6px 10px;
+  opacity: 0.5;
+}
+
+body.dark #attoya-drawer-menu .crud button.disabled,
+body.dark #attoya-drawer-menu .crud button.disabled:hover,
+body.dark #attoya-drawer-menu .crud button.disabled:focus
+body.dark #attoya-drawer-menu .action button.disabled,
+body.dark #attoya-drawer-menu .action button.disabled:hover,
+body.dark #attoya-drawer-menu .action button.disabled:focus {
+  background-color: #292D35 !important;
+  border-color: #292D35 !important;
+  color: #747a8b !important;
+}
+
+/* Pointer setting needs to be after to allow disable cursor setting */
+#attoya-drawer-menu button:not(.disabled) {
+  cursor: pointer;
+}
+
+#attoya-drawer-menu button.icon:not(.disabled):focus,
+#attoya-drawer-menu button.text:not(.disabled):focus {
+  background-color: #f9f9f9; /* Make original state backgroud color */
+  color: #797979;
+}
+
+#attoya-drawer-menu button.icon:not(.disabled):hover,
+#attoya-drawer-menu button.text:not(.disabled):hover {
+  background-color: #e8e8e8;
+  color: #797979;
+}
+
+
+
+
+/* Dialog */
+
+#attoya-drawer-dialog {
+  background: #fff7e9;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  transition: all 0.2s ease;
+  display: none;
+}
+body.dark #attoya-drawer-dialog {
+  background: #61543e;
+}
+
+#attoya-drawer-dialog .message {
+  float: left;
+  padding: 6px 0px;
+}
+
+#attoya-drawer-dialog .buttons {
+  float: right;
+}
+
+#attoya-drawer-dialog .buttons .button {
+  margin-bottom: 0;
+}
+
+
+
+
+/* Lists */
+
+#attoya-drawer-content .list-title {
+  font-style: italic;
+  padding-left: 10px;
+}
+
+#attoya-drawer-content .lists {
+  max-height: 250px;
+  clear: both;
+}
+
+#attoya-drawer-content .lists a,
+#attoya-drawer-content .lists span {
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#attoya-drawer-content .lists a:hover,
+#attoya-drawer-content .lists span:hover,
+#attoya-drawer-content .lists table tbody tr:hover {
+  background: rgba(251, 236, 136, 1) !important;
+  text-decoration: none;
+}
+
+#attoya-drawer-content .lists table thead th {
+  padding: 5px;
+}
+
+#attoya-drawer-content .lists table tbody tr {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#attoya-drawer-content .lists .assigned {
+  background: rgba(155, 255, 0, 0.37) !important;
+  text-decoration: none;
+}
+
+#attoya-drawer-content .lists .selected {
+  background: #c5dbec !important;
+  text-decoration: none;
+}
+
+#attoya-drawer-content .lists .selected.inactive {
+  background: #cacaca !important;
+  text-decoration: none;
+}
+
+#attoya-drawer-content .lists .inactive {
+  opacity: 0.35;
+  text-decoration: none;
+}
+
+#attoya-drawer-content .lists .controls {
+  float: right;
+  text-align: right;
+  margin-top: -5px;
+}
+
+#attoya-drawer-content .lists tbody .controls {
+  float: right;
+  text-align: right;
+  margin-top: 1px;
+}
+
+#attoya-drawer-content .lists .controls i {
+  padding: 0 3px;
+}
+
+#attoya-drawer-content .lists .controls .use,
+#attoya-drawer-content .lists .controls .open {
+  display: none;
+}
+
+#attoya-drawer-content .lists .controls .use .fa-fw,
+#attoya-drawer-content .lists .controls .open .fa-fw {
+  min-width: 30px;
+}
+
+
+

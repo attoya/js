@@ -1,0 +1,456 @@
+
+
+
+/* Timeline */
+
+.attoya-timeline {
+  min-height: 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #F1F1F1;
+}
+body.dark .attoya-timeline {
+  border-color: #666A77;
+}
+
+.attoya-timeline.fulldisplay {
+  position: fixed;
+  scroll-behavior: smooth;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+  margin-bottom: 0;
+  overflow-y: scroll;
+  z-index: 1001;
+  background: #FFFFFF;
+}
+body.dark .attoya-timeline.fulldisplay {
+  background: #1A1D22;
+}
+
+/* Shift page down for testing header display */
+.attoya-timeline.fulldisplay.testing {
+  margin-top: 30px;
+}
+
+
+
+/* Labels */
+
+.attoya-timeline labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 180px;
+  background: #FBFBFB;
+}
+body.dark .attoya-timeline labels {
+  background: #292D35;
+}
+
+
+
+
+/* Label Controls */
+
+.attoya-timeline labels controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 180px;
+  text-align: left;
+  background: #FBFBFB;
+  color: #63666A;
+  padding-top: 19px;
+  border-bottom: 1px solid #F2F2F2;
+}
+body.dark .attoya-timeline labels controls {
+  background: #292D35;
+  border-color: #666A77;
+}
+
+.attoya-timeline labels controls i {
+  float: left;
+  outline-style: none;
+  margin-left: 6px;
+}
+
+
+
+
+/* Label Rows */
+
+.attoya-timeline labels rows {
+  position: absolute;
+  top: 40px;
+}
+
+.attoya-timeline labels rows row {
+  font-size: 11px;
+  padding: 10px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: #FBFBFB;
+  border-bottom: 1px solid #F2F2F2;
+}
+body.dark .attoya-timeline labels rows row {
+  background: #292D35;
+  border-color: #666A77;
+}
+
+.attoya-timeline labels rows row:not(.no-hover):hover {
+  background: #ffecd7;
+}
+body.dark .attoya-timeline labels rows row:not(.no-hover):hover {
+  background: #4f4437;
+}
+
+.attoya-timeline labels rows row a {
+  cursor: pointer;
+  color: #888888;
+  text-decoration: none;
+}
+
+
+
+
+/* Content */
+
+.attoya-timeline content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 179px;
+  overflow: hidden;
+  display: block;
+  z-index: 1;
+}
+
+
+/* Content Ruler */
+
+.attoya-timeline content ruler.vertical {
+  position: absolute;
+  top: 40px;
+  left: -1px;
+  height: 100%;
+  background: #F2F2F2;
+  z-index: 0;
+}
+body.dark .attoya-timeline content ruler.vertical {
+  background: #666A77;
+}
+.attoya-timeline content ruler.vertical.normal {
+  width: 1px;
+}
+.attoya-timeline content ruler.vertical.thick {
+  width: 3px;
+}
+
+.attoya-timeline content ruler.current {
+  position: absolute;
+  top: 40px;
+  left: -1px;
+  width: 3px;
+  height: 100%;
+  background: #006DC1;
+  opacity: 0.5;
+  z-index: 0;
+}
+body.dark .attoya-timeline content ruler.current {
+  background: #006DC1;
+}
+
+
+/* Content Scale */
+.attoya-timeline content scale {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  height: 40px;
+  background: #FBFBFB;
+  border-bottom: 1px solid #F2F2F2;
+  z-index: 100;
+}
+body.dark .attoya-timeline content scale {
+  background: #292D35;
+  border-color: #666A77;
+}
+
+.attoya-timeline content scale range,
+.attoya-timeline content scale period {
+  position: absolute;
+  width: 80px;
+  display: inline-block;
+}
+
+.attoya-timeline content scale range {
+  font-weight: bold;
+  z-index: 1;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+
+.attoya-timeline content scale period {
+  margin-top: 6px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+
+.attoya-timeline content scale period:not(.no-hover):hover {
+  background: #ffecd7;
+}
+body.dark .attoya-timeline content scale period:not(.no-hover):hover {
+  background: #4f4437;
+}
+
+
+
+
+/* Totals Row */
+
+.attoya-timeline .table {
+  padding: 5px 0 35px 0;
+  border-bottom: 1px solid #F2F2F2;
+  height: 14px;
+  margin-top: 40px;
+}
+body.dark .attoya-timeline .table {
+  border-color: #666A77;
+}
+.attoya-timeline .table.full {
+  height: 100px;
+}
+
+.attoya-timeline .table > div > div > div {
+  padding: 2px 5px 2px 5px;
+}
+
+.attoya-timeline .table > div > div > div:last-child {
+  background: #E4E4E460;
+}
+
+.attoya-timeline .table > div > div:not(:last-child) {
+  padding-bottom: 5px;
+}
+
+.attoya-timeline labels .table > div {
+  width: 100%;
+}
+
+
+
+.attoya-timeline content .table {
+  position: relative;
+  margin-top: 40px;
+}
+
+.attoya-timeline content .table period {
+  position: absolute;
+  width: 80px;
+  display: inline-block;
+  text-align: right;
+}
+
+.attoya-timeline content .table period.period-bar {
+  width: 100%;
+  z-index: 0;
+}
+
+
+
+
+/* Content Rows */
+
+.attoya-timeline content rows {
+  margin-top: 40px;
+}
+
+.attoya-timeline content row {
+  padding: 10px 1px 10px 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #F2F2F2;
+}
+body.dark .attoya-timeline content row {
+  border-color: #666A77;
+}
+.attoya-timeline content row:hover {
+  /* overflow: visible; */
+  /* z-index: 5; */
+  white-space: normal;
+}
+
+.attoya-timeline content row {
+  position: relative;
+}
+
+
+
+
+/* Content Periods / Points */
+
+.attoya-timeline content row period {
+  position: absolute;
+  min-width: 80px;
+  height: 100%;
+  padding: 0;
+  bottom: 0;
+  display: inline-block;
+}
+
+.attoya-timeline content row period point {
+  border-radius: 4px;
+  padding: 7px;
+  margin: 2px;
+  min-width: 100px;
+  min-height: 16px;
+  font-size: 0.9em;
+  color: #5c5c5c;
+  word-break: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+}
+.attoya-timeline content row period point:hover {
+  background: #EFEFEF;
+}
+.attoya-timeline content row period point:first-child {
+  margin-top: 10px;
+}
+.attoya-timeline content row period point:last-child {
+  margin-bottom: 10px;
+}
+
+.attoya-timeline content row period point a {
+  color: #5c5c5c;
+  text-decoration: none;
+}
+
+
+body.dark .attoya-timeline content row period point {
+  box-shadow: rgba(15, 15, 15, 0.3) 0px 0px 0px 1px, rgba(15, 15, 15, 0.3) 0px 2px 4px;
+}
+body.dark .attoya-timeline content row period point:hover {
+  background: #26282e;
+}
+body.dark .attoya-timeline content row period point a {
+  color: #CCCCCC;
+}
+
+
+.attoya-timeline content row period.add {
+  cursor: cell;
+}
+.attoya-timeline content row period.add:hover {
+  background: #ffecd7;
+}
+body.dark .attoya-timeline content row period.add:hover {
+  background: #4f4437;
+}
+.attoya-timeline content row period.blank {
+  padding: 0;
+}
+
+/* Keep blank period_list from interfering with other period_list. */
+.attoya-timeline content row period.period_0_0 {
+  left: -100px;
+}
+
+
+
+/* Confidence Colors */
+.attoya-timeline content point .confidence-complete {
+  background: #bebebeB0;
+}
+.attoya-timeline content point .confidence-100 {
+  background: #74B951B0;
+}
+.attoya-timeline content point .confidence-90 {
+  background: #345bd2B0;
+}
+.attoya-timeline content point .confidence-80 {
+  background: #3965ddB0;
+}
+.attoya-timeline content point .confidence-70 {
+  background: #4472ddB0;
+}
+.attoya-timeline content point .confidence-60 {
+  background: #4f7cd7B0;
+}
+.attoya-timeline content point .confidence-50 {
+  background: #5e88cbB0;
+}
+.attoya-timeline content point .confidence-40 {
+  background: #7393bdB0;
+}
+.attoya-timeline content point .confidence-30 {
+  background: #889db3B0;
+}
+.attoya-timeline content point .confidence-20 {
+  background: #9aa5aeB0;
+}
+.attoya-timeline content point .confidence-10 {
+  background: #a9adb0B0;
+}
+.attoya-timeline content point .confidence-0 {
+  background: #b2b2b2B0;
+}
+.attoya-timeline content point .confidence-orphan,
+.tooltiptext content point .confidence-orphan {
+  background: #FF6600B0;
+}
+.attoya-timeline content point .confidence-blank {
+
+}
+.attoya-timeline content point .confidence-none {
+  display: none;
+}
+
+
+
+
+/* .qtip-demand-timeline {
+  font-size: 12px;
+} */
+
+.tooltiptext {
+  display: none;
+}
+.tooltiptext table td {
+  padding: 1px;
+}
+
+.tooltiptext .confidence-orphan {
+  position: relative;
+  left: -14px;
+  top: 10px;
+  width: calc(100% + 14px);
+  padding: 3px 7px;
+}
+
+.tooltiptext .confidence-orphan .text {
+  padding: -5px;
+  color: #ffffff;
+  text-align: center;
+}
+body.dark .attoya-timeline content row {
+  color: #333333;
+}
+
+/* THIS IS NEEDED TO MAKE ISCROLL WORK PROPERLY */
+.iscroll-wrapper {
+  display: table;
+  width: 100%;
+  outline: 1px solid transparent;
+}
+
+
+

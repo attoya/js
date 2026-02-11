@@ -1,0 +1,746 @@
+
+
+
+
+
+/* Ajax Loading Wrapper */
+.ajax-loader {
+  animation-name: ajax-loader;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite
+}
+@keyframes ajax-loader {
+  0%   { opacity: .20 }
+  50%  { opacity: .40 }
+  100% { opacity: .20 }
+}
+
+/* Ajax Loading for Sub Items */
+.ajax-loader .list-item .show::before
+.ajax-loader .list-tree-node .show::before,
+.ajax-loader .sheet-item .show::before,
+.ajax-loader .board-item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -150px;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(to right, transparent 0%, #c8c8c8 50%, transparent 100%);
+  animation: ajax-loader-sub-item 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+.ajax-loader .list-item .show,
+.ajax-loader .list-tree-node .show,
+.ajax-loader .sheet-item .show,
+.ajax-loader .board-item {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes ajax-loader-sub-item {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+
+
+
+/* Highlight */
+
+.highlight {
+  background: #d3e4fb !important;
+}
+
+.highlight-error {
+  background: #fbd3d3 !important;
+}
+
+
+
+
+/* Filter */
+
+filter {
+  width: 100%;
+  border: 1px solid #f1f1f1;
+  padding-top: 1em;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  margin-bottom: 3em;
+  overflow: auto;
+  float: left;
+}
+@media screen and (max-width: 40em) {
+  filter {
+    border: none;
+    padding: 0;
+  }
+}
+body.dark filter {
+  border: 1px solid #292D35;
+}
+
+filter row {
+  width: 100%;
+  min-width: 800px;
+  overflow: auto;
+}
+filter row:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+filter column,
+filter .columns {
+  padding-left: 0;
+}
+filter column:last-child,
+filter column column:last-child,
+filter .columns:last-child,
+filter .columns .columns:last-child {
+  padding-right: 0;
+}
+@media screen and (max-width: 1024px) {
+  filter column,
+  filter .columns,
+  filter column .column
+  filter .columns .columns {
+    padding-right: 0;
+  }
+}
+
+filter input,
+filter select {
+  height: 2.4375rem;
+  font-size: 1em;
+}
+filter .button {
+  height: 2.4375rem;
+  font-size: 0.9em;
+}
+
+
+
+
+/* Interface Table */
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #666;
+}
+
+body.dark table thead {
+  background-color: #292D35;
+  color: #FFFFFF;
+}
+body.dark table thead,
+body.dark table tbody,
+body.dark table tfoot {
+  border: 1px solid #292D35;
+}
+
+table tbody tr {
+  vertical-align: top;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+table tbody tr:nth-child(even) {
+  background-color: #F1F1F1;
+}
+body.dark table tbody tr:nth-child(odd) {
+  background-color: #1A1D22;
+}
+body.dark table tbody tr:nth-child(even) {
+  background-color: #292D35;
+}
+
+table th,
+table td {
+  text-align: center;
+}
+
+
+
+
+/* Interface Table Database */
+
+table.database th,
+table.database td {
+  text-align: left;
+  white-space: nowrap;
+}
+
+
+
+
+/* Interface Table List */
+
+table.list-simple th,
+table.list-simple td,
+table.list-index th,
+table.list-index td,
+table.list-select th,
+table.list-select td,
+table.list-tree th,
+table.list-tree td {
+  text-align: left;
+}
+
+
+
+
+/* Interface Table Control */
+
+table th .control,
+table td .control {
+  padding: 0.3em;
+  opacity: 0;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+table th {
+  position: relative;
+}
+
+/* Update the parent of controls to have extra bottom padding */
+table th:has( > .controls ) {
+  padding-bottom: 2.5em;
+}
+
+table th .controls {
+  display: flex;
+  position: absolute;
+  width: calc(100% - 0.625rem - 0.625rem); /* Account for padding */
+  bottom: 0.625rem;
+}
+table th .controls .control {
+  background-color: #63666A;
+  color: #ffffff;
+  text-align: center;
+  flex-grow: 1;
+}
+table th .controls .control:not(:first-of-type) {
+  margin-left: 0.2em;
+}
+
+table th:hover .control {
+  opacity: 1;
+}
+
+table td .control {
+  float: right;
+}
+
+
+
+
+/* Interface Table List Select */
+
+table.list-simple td.show {
+  font-weight: bold;
+}
+
+
+
+
+/* Interface Table List Index */
+
+table.list-index th,
+table.list-index td {
+  text-align: left;
+}
+
+table.list-index td:first-child {
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+
+
+/* Interface Table List Select */
+
+table.list-select th,
+table.list-select td {
+  text-align: center;
+  vertical-align: top;
+}
+
+table.list-select td.highlight,
+table.list-select td:first-child {
+  font-weight: bold;
+  text-align: left;
+}
+
+table.list-select td.indicator {
+  width: 40px;
+}
+
+table.list-select th.drive,
+table.list-select td.drive {
+  text-align: left;
+  padding: 3px 0;
+}
+
+
+
+
+/* Interface Table List Links */
+
+table.list-simple a,
+table.list-select a,
+table.list-index a,
+table.list-tree a {
+  color: #888888;
+  text-decoration: none;
+}
+body.dark table.list-simple a,
+body.dark table.list-select a,
+body.dark table.list-index a,
+body.dark table.list-tree a {
+  color: #dddddd;
+}
+
+/* Disable cursor for links that are to self */
+
+table.list-select td.self a,
+table.list-index td.self a,
+table.list-tree td.self a,
+table.list-select td.self,
+table.list-index td.self,
+table.list-tree td.self {
+  cursor: default;
+}
+
+
+/* Clear input margins in lists */
+
+table.list-select td input,
+table.list-index td input,
+table.list-tree td input {
+  margin: 0;
+}
+
+
+
+/* Interface Table List Tree */
+
+table.list-tree th,
+table.list-tree td {
+  text-align: left;
+}
+
+table.list-tree td:first-child {
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+table.list-tree td.level-0 {
+  /* Use default table padding */
+}
+table.list-tree td.level-1 {
+  padding-left: 0.75rem;
+}
+table.list-tree td.level-2 {
+  padding-left: 2rem;
+}
+table.list-tree td.level-3 {
+  padding-left: 3.25rem;
+}
+table.list-tree td.level-4 {
+  padding-left: 4.5rem;
+}
+table.list-tree td.level-5 {
+  padding-left: 5.75rem;
+}
+table.list-tree td.level-6 {
+  padding-left: 7rem;
+}
+table.list-tree td.level-7 {
+  padding-left: 8.25rem;
+}
+table.list-tree td.level-8 {
+  padding-left: 9.5rem;
+}
+table.list-tree td.level-9 {
+  padding-left: 10.75rem;
+}
+table.list-tree td.level-10 {
+  padding-left: 12rem;
+}
+
+
+table.list-tree td.level-1:before,
+table.list-tree td.level-2:before,
+table.list-tree td.level-3:before,
+table.list-tree td.level-4:before,
+table.list-tree td.level-5:before,
+table.list-tree td.level-6:before,
+table.list-tree td.level-7:before,
+table.list-tree td.level-8:before,
+table.list-tree td.level-9:before,
+table.list-tree td.level-10:before {
+  content: '└─';
+  margin-right: -0.3em;
+  font-size: 12px;
+  color: #939393;
+}
+
+
+
+
+/* List Items */
+.list-item {
+  opacity: inherit;
+}
+.list-item.status-step-cancelled {
+  opacity: 0.35;
+}
+
+
+
+
+/* Interface Table Detail Tree */
+
+wrapper.detail-tree th,
+wrapper.detail-tree td {
+  text-align: left;
+}
+
+
+/* Interface Table Detail TreeLinks */
+
+wrapper.detail-tree a {
+  color: #888;
+  text-decoration: none;
+}
+
+
+wrapper.detail-tree td.level-0 {
+  padding-left: 0rem;
+}
+wrapper.detail-tree td.level-1 {
+  padding-left: 1rem;
+}
+wrapper.detail-tree td.level-2 {
+  padding-left: 2rem;
+}
+wrapper.detail-tree td.level-3 {
+  padding-left: 3rem;
+}
+wrapper.detail-tree td.level-4 {
+  padding-left: 4rem;
+}
+wrapper.detail-tree td.level-5 {
+  padding-left: 5rem;
+}
+wrapper.detail-tree td.level-6 {
+  padding-left: 6rem;
+}
+wrapper.detail-tree td.level-7 {
+  padding-left: 7rem;
+}
+wrapper.detail-tree td.level-8 {
+  padding-left: 8rem;
+}
+wrapper.detail-tree td.level-9 {
+  padding-left: 9rem;
+}
+wrapper.detail-tree td.level-10 {
+  padding-left: 10rem;
+}
+
+
+wrapper.detail-tree td.level-1:before,
+wrapper.detail-tree td.level-2:before,
+wrapper.detail-tree td.level-3:before,
+wrapper.detail-tree td.level-4:before,
+wrapper.detail-tree td.level-5:before,
+wrapper.detail-tree td.level-6:before,
+wrapper.detail-tree td.level-7:before,
+wrapper.detail-tree td.level-8:before,
+wrapper.detail-tree td.level-9:before,
+wrapper.detail-tree td.level-10:before {
+  content: '└─';
+  margin-right: -0.3em;
+  font-size: 12px;
+  color: #939393;
+}
+
+
+.detail-tree-node .collapser .collapse,
+.detail-tree-node .collapser .expand {
+  cursor: pointer;
+  user-select: none;
+}
+
+.detail-tree-node .collapser .expand {
+  display: none;
+}
+.detail-tree-node.collapsed .collapser .expand {
+  display: unset;
+}
+.detail-tree-node.collapsed .collapser .collapse {
+  display: none;
+}
+
+
+
+
+
+/* Interface Table Sheet */
+
+table.sheet-index th,
+table.sheet-index td,
+table.sheet-select th,
+table.sheet-select td,
+table.sheet-tree th,
+table.sheet-tree td {
+  text-align: left;
+}
+
+
+/* Interface Table Sheet Index */
+
+table.sheet-index th,
+table.sheet-index td {
+  text-align: left;
+}
+
+table.sheet-index td:first-child {
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+
+
+/* Interface Table Sheet Select */
+
+table.sheet-select th,
+table.sheet-select td {
+  text-align: left;
+  vertical-align: top;
+}
+
+table.sheet-select td.highlight,
+table.sheet-select td:first-child {
+  font-weight: bold;
+  text-align: center;
+}
+
+table.sheet-select td.indicator {
+  width: 40px;
+}
+
+table.sheet-select th.drive,
+table.sheet-select td.drive {
+  text-align: left;
+  padding: 3px 0;
+}
+
+
+
+
+/* Interface Table Sheet Links */
+
+table.sheet-select a,
+table.sheet-index a {
+  color: #888;
+  text-decoration: none;
+}
+
+/* Disable cursor for links that are to self */
+
+table.sheet-select td.self a,
+table.sheet-index td.self a,
+table.sheet-select td.self,
+table.sheet-index td.self {
+  cursor: default;
+}
+
+
+
+
+/* Interface Board */
+.board-container {
+  border: 1px solid #f1f1f1 !important;
+  overflow-x: scroll;
+}
+
+body.dark .board-container {
+  border: 1px solid #292D35 !important;
+}
+
+.board table thead, table tbody, table tfoot {
+  border: none !important;
+}
+
+.board table td {
+  min-width: 300px;
+  vertical-align: top;
+  padding: 0.5rem 0.4rem 0.4rem;
+}
+
+.board-item {
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  text-align: left;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+}
+.board-item:hover {
+  background: #eaeaea;
+}
+.board-item.status-step-cancelled {
+  opacity: 0.35;
+}
+
+body.dark .board-item {
+  box-shadow: rgba(15, 15, 15, 0.4) 0px 0px 0px 1px, rgba(15, 15, 15, 0.4) 0px 2px 4px;
+}
+body.dark .board-item:hover {
+  background: #26282e;
+}
+
+.board-item .display a {
+  color: #333333;
+}
+body.dark .board-item .display a {
+  color: #CCCCCC;
+}
+
+.board-item .subscriber {
+  margin-bottom: 0.5em;
+}
+
+.board-item .status,
+.board-item .subscriber {
+  font-size: 0.8em;
+}
+
+
+
+
+
+
+
+
+
+/* Form */
+
+.form-controls {
+  float: right;
+}
+
+.form input[name="ref"] {
+  text-transform: uppercase;
+}
+
+
+
+
+/* Form Related */
+
+.related-autocomplete {
+  margin-bottom: 0.5em !important;
+}
+
+.related-item-list {
+  margin-bottom: 2em;
+  overflow: auto;
+}
+
+.related-item-list .related-item {
+  float: left;
+  border-radius: 15px;
+  background: #eaeaea;
+  padding: 8px 12px;
+  margin: 3px;
+  color: #333333;
+  font-size: 0.9em;
+  line-height: 0.9em;
+}
+body.dark .related-item-list .related-item {
+  background: #5a5e68;
+  color: #dddddd;
+}
+
+.related-item-list .related-item i {
+  margin-left: 8px;
+  cursor: pointer;
+  opacity: 0.25;
+}
+.related-item-list .related-item i:hover {
+  opacity: 0.50;
+}
+.related-item-list .related-item i:before {
+  font-size: 0.9em;
+}
+
+/* Hidden Items */
+.related-item-list .related-item-blank {
+  display: none;
+}
+
+
+
+
+/* Form Relation */
+
+.relation-autocomplete {
+  margin-bottom: 0.5em !important;
+}
+
+.relation-item-list {
+  margin-bottom: 2em;
+  overflow: auto;
+}
+
+.relation-item-list .relation-item {
+  float: left;
+  border-radius: 15px;
+  background: #eaeaea;
+  padding: 8px 12px;
+  margin: 3px;
+  color: #333333;
+  font-size: 0.9em;
+  line-height: 0.9em;
+}
+
+.relation-item-list .relation-item i {
+  margin-left: 8px;
+  cursor: pointer;
+  opacity: 0.25;
+}
+.relation-item-list .relation-item i:hover {
+  opacity: 0.50;
+}
+.relation-item-list .relation-item i:before {
+  font-size: 0.9em;
+}
+
+/* Hidden Items */
+.relation-item-list .relation-item-blank {
+  display: none;
+}
+
+
+

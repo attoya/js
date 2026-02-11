@@ -1,16 +1,14 @@
 
-# Large Files
-*.zip
-*.rar
-*.exe
+# Cache
+.sass-cache
 
-# Temp Files
-/tmp/*
-!/tmp/NoCommits.txt
+# Dependencies
+node_modules/
 
+# Log Files
+*.log
 
 # Development
 /.vscode
+/console.*
 .noseids
-*~
-~*

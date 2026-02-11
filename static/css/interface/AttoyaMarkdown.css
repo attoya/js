@@ -1,0 +1,370 @@
+
+
+
+
+
+.attoya-markdown h1 {
+  font-size: 1.5em !important;
+}
+.attoya-markdown h2 {
+  font-size: 1.25em !important;
+}
+.attoya-markdown h3 {
+  font-size: 1.15em !important;
+}
+.attoya-markdown h4 {
+  font-size: 1.05em !important;
+}
+.attoya-markdown h5 {
+  font-size: 1em !important;
+}
+.attoya-markdown h6 {
+  font-size: 1em !important;
+}
+
+.attoya-markdown h1:not(:first-child),
+.attoya-markdown h2:not(:first-child),
+.attoya-markdown h3:not(:first-child) {
+  margin-top: 1em;
+}
+.attoya-markdown h4:not(:first-child),
+.attoya-markdown h5:not(:first-child),
+.attoya-markdown h6:not(:first-child) {
+  margin-top: 0.75em;
+}
+
+.attoya-markdown p {
+  font-size: 1em;
+  margin-bottom: 1em;
+  line-height: 1.4em;
+}
+
+.attoya-markdown ul,
+.attoya-markdown ol {
+  font-size: 1em;
+  margin-bottom: 0;
+  line-height: 1.4em;
+}
+
+table .attoya-markdown ul {
+  margin-bottom: 0;
+}
+
+.attoya-markdown hr {
+  margin: 0.6em 0;
+}
+
+.attoya-markdown li {
+  list-style: inherit;
+  margin-left: 1em;
+}
+
+.attoya-markdown a {
+  color: #888888;
+  text-decoration: underline;
+  /* Wrap Long URL */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+}
+body.dark .attoya-markdown a {
+  color: #b4b4b4;
+}
+
+.attoya-markdown blockquote {
+  border-left: 1px solid #A9A9A9;
+  padding: 0.5em 0.8em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+body.dark .attoya-markdown blockquote {
+  border-color:  #DDDDDD;
+  color: #DDDDDD;
+}
+
+
+/* Code Inline and Blocks*/
+
+.attoya-markdown code,
+.attoya-markdown pre {
+  width: auto;
+  clear: both;
+  color: #555555;
+  margin: 0;
+  border-radius: 3px;
+  border: none;
+  background: #f4f4f4;
+}
+
+body.dark .attoya-markdown code,
+body.dark .attoya-markdown pre {
+  color: #f4f4f4;
+  background: #4c5262;
+}
+
+
+/* Code Inline >`< */
+
+.attoya-markdown code {
+  height: 1%;
+  padding: 0.3em 0.5em;
+}
+
+
+/* Code Blocks >```< */
+
+.attoya-markdown pre {
+  display: block;
+  height: auto;
+  padding: 1.5em 1.5em;
+  position: relative;
+}
+
+.attoya-markdown pre .copy-button {
+  position: absolute;
+  background-color: #f9f9f9;
+  color: #797979;
+  border: 1px solid #797979;
+  top: 6px;
+  right: 6px;
+  font-size: 14px;
+  padding: 6px;
+}
+.attoya-markdown pre .copy-button:hover {
+  background-color: #e8e8e8;
+}
+
+.attoya-markdown pre .copy-code-textarea {
+  /* @note Can only copy text from NON-HIDDEN element, Workaround to make it non-hidden without showing on screen */
+  position: absolute;
+  left: -10000px;
+  top: -10000px;
+}
+
+
+/* Check Item */
+
+.attoya-markdown .check-item {
+  cursor: pointer;
+  margin-left: 1em;
+  margin-right: 0.25em;
+}
+.attoya-markdown .check-item.disabled {
+  cursor: not-allowed;
+}
+
+body.dark .attoya-markdown .check-item:not(.fa-check-square):before {
+  color: #63666A;
+}
+
+
+/* Table */
+
+.attoya-markdown .attoya-markdown-table {
+  overflow: auto;
+}
+
+.attoya-markdown table {
+  white-space: nowrap;
+}
+
+.attoya-markdown table .table-input {
+  cursor: text;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+  text-align: left;
+}
+.attoya-markdown table .table-input.disabled {
+  cursor: not-allowed;
+}
+
+.attoya-markdown table .table-input:focus {
+  background: #f0f8ff;
+  box-shadow: inset 0px 0px 0px 1px #b8b8b8;
+  outline: none;
+}
+
+/* Progress Fill */
+
+.attoya-markdown .progress-fill {
+  border: 1px solid #63666a;
+  display: inline-block;
+  width: 20px;
+  height: 0.75em; /* Trying to keep height in line with check boxes */
+  margin-left: 1em;
+  margin-right: 0.25em;
+  cursor: pointer;
+}
+
+/* Adjust check items that have a leading progress bar. CSS + is called "Adjacent sibling" */
+.attoya-markdown .progress-fill + .check-item {
+  margin-left: 0.4em;
+}
+
+.attoya-markdown .progress-fill .progress-inner {
+  display: block;
+  height: 100%;
+  transition: background-color .1s linear, width .1s linear;
+}
+
+.attoya-markdown .progress-fill .progress-inner.fill-100 {
+  width: 100%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-90 {
+  width: 90%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-80 {
+  width: 80%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-70 {
+  width: 70%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-60 {
+  width: 60%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-50 {
+  width: 50%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-40 {
+  width: 40%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-30 {
+  width: 30%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-20 {
+  width: 20%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-10 {
+  width: 10%;
+}
+.attoya-markdown .progress-fill .progress-inner.fill-0 {
+  width: 0%;
+}
+
+
+/* Progress Bar */
+
+.attoya-markdown .progress-bar .bar {
+  background-color: #1a73e8;
+}
+
+
+
+/* Progress Code Status */
+
+.attoya-markdown .progress-code-status .code-status {
+  background-color: #f6c342;
+}
+
+/* Complete */
+.attoya-markdown .progress-code-status .code-status-complete {
+  background-color: #BA0C2F;
+}
+
+/* Continual Development */
+.attoya-markdown .progress-code-status .code-status-continue {
+  background: repeating-linear-gradient(
+    135deg,
+    #BA0C2F 0px,
+    #BA0C2F 3px,
+    #f15c73 3px,
+    #f15c73 5px
+  );
+}
+
+/* Refactoring */
+.attoya-markdown .progress-code-status .code-status-refactor {
+  background: repeating-linear-gradient(
+    135deg,
+    #E78444 0px,
+    #E78444 3px,
+    #ffab72 3px,
+    #ffab72 5px
+  );
+}
+
+/* Further Development Needed */
+.attoya-markdown .progress-code-status .code-status-further {
+  background-color: #E78444;
+}
+
+/* Incomplete */
+.attoya-markdown .progress-code-status .code-status-incomplete {
+  background: repeating-linear-gradient(
+    135deg,
+    #7212BE 0px,
+    #7212BE 3px,
+    #BE7BF3 3px,
+    #BE7BF3 5px
+  );
+}
+
+/* Review */
+.attoya-markdown .progress-code-status .code-status-review {
+  background-color: #7212BE;
+}
+
+/* Active Development */
+.attoya-markdown .progress-code-status .code-status-active {
+  background-color: #BC36CD;
+}
+
+/* In Development */
+.attoya-markdown .progress-code-status .code-status-dev {
+  background-color: #F6C342;
+}
+
+/* Queued for Development */
+.attoya-markdown .progress-code-status .code-status-queue {
+  background: repeating-linear-gradient(
+    135deg,
+    #F6C342 0px,
+    #F6C342 3px,
+    #FFF1CE 3px,
+    #FFF1CE 5px
+  );
+}
+
+/* Scaffold */
+.attoya-markdown .progress-code-status .code-status-scaffold {
+  background: repeating-linear-gradient(
+    135deg,
+    #7D8D9A 0px,
+    #7D8D9A 3px,
+    #C5D0D9 3px,
+    #C5D0D9 5px
+  );
+}
+
+/* Planning */
+.attoya-markdown .progress-code-status .code-status-planning {
+  background: repeating-linear-gradient(
+    135deg,
+    #C5D0D9 0px,
+    #C5D0D9 3px,
+    #e3edf5 3px,
+    #e3edf5 5px
+  );
+}
+
+/* Callout */
+
+.attoya-markdown .callout {
+  background: #fbf3db;
+  color: #6c6c6c;
+  margin: 0;
+}
+
+.attoya-markdown .callout .callout-title {
+  font-family: 'Open Sans Bold';
+  font-weight: bold;
+}
+
+
+

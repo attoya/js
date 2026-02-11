@@ -1,0 +1,16 @@
+{
+  "name": "attoyajs",
+  "version": "2.0.0",
+  "description": "Frontend JS",
+  "keywords": [],
+  "author": "Attoya",
+  "contributors": [
+    "Trav Schan <travschan@attoya.com>"
+  ],
+  "main": "index.js",
+  "homepage": "https://www.attoya.com/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
+}

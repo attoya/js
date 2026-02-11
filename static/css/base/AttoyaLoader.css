@@ -1,0 +1,53 @@
+
+
+
+preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1A1D22;
+  background-image: -webkit-linear-gradient(315deg, #1A1D22, #292D35);
+  background-image: linear-gradient(135deg, #1A1D22, #292D35);
+  z-index: 999999;
+}
+
+
+preloader div {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%; /* centers the loading animation horizontally one the screen */
+  top: 50%; /* centers the loading animation vertically one the screen */
+  background-image: url(../../img/tail-spin.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px; /* is width and height divided by two */
+}
+
+
+
+
+/* Loader */
+
+loader {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 10000;
+}
+loader div {
+  position: absolute;
+  display: none;
+  top: -45px;
+  left: 5px;
+}
+@media screen and (max-width: 70em) {
+  loader graphic {
+    top: 13px;
+    left: 12px;
+    background: #22262c;
+  }
+}
+

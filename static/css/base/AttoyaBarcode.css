@@ -1,0 +1,25 @@
+
+
+
+
+.barcode {
+  color: black;
+  font-size: inherit;
+  font-family: 'Libre Barcode 39';
+}
+.barcode-text {
+  font-family: 'Libre Barcode 39 Text';
+}
+
+.barcode.sm {
+  font-size: 32px;
+}
+.barcode.md {
+  font-size: 64px;
+}
+.barcode.lg {
+  font-size: 128px;
+}
+
+
+
